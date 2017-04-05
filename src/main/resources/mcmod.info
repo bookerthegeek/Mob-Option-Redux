@@ -2,7 +2,7 @@
 {
   "modid": "moboptions",
   "name": "Mob-Options Redux",
-  "description": "The idea behind this mod was to make getting valuable resources harder, and encourage building bases above ground. Also, to allow the scaling of mobs by distance for use in exploration / adventure mod packs.",
+  "description": "Mob scaling based on distance from spawn",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
