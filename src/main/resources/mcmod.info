@@ -6,7 +6,7 @@
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://minecraft.curseforge.com/projects/mob-options-redux",
-  "updateUrl": "",
+  "updateJSON": "",
   "authorList": ["BookerTheGeek: Owner", "TuffNoodle: Artist", "Matryoshika: Maintainer"],
   "credits": "poop_corn: Original Author",
   "logoFile": "assets/moboptions/textures/logo.png",
