@@ -66,7 +66,7 @@ public class ConfigHandler {
 
 		maxSpeed = config.getFloat("Creeper Max Speed", "Mob Settings", .4F, 0F, 5F,"Max creeper speed. (base speed is .25");
 		speedGain = config.getFloat("Creeper Speed Gain", "Mob Settings", .01F, 0F, .5F,"Approx. creeper speed gain per 2 levels.");
-		maxRange = config.getInt("Range Max", "Mob Settings", 40, 16, 100,"Max mob tracking range. (base is 16 for most)");
+		maxRange = config.getInt("Range Max", "Mob Settings", 80, 16, 100,"Max mob tracking range. (base is 16 for most)");
 		rangeGain = config.getFloat("Range Gain", "Mob Settings", 1F, 0F, 10F,"Approx. tracking range gain per 2 levels.");
 
 		dimData = new HashMap<Integer, DimensionMobOptions>();
