@@ -118,6 +118,17 @@ public class MobOptionsEventHandler {
 				mob.getCapability(CapabilityStats.ATTACK_CAPABILITY, CapabilityStats.DEFAULT_FACING).addBonusMaxAttack(damage);
 			}
 			
+			if(mob.hasCapability(CapabilityStats.FOLLOW_RANGE_CAPABILITY, CapabilityStats.DEFAULT_FACING)){
+				
+				int baseRange = (int)mob.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).getAttributeValue();
+				
+				int range = (int)((attackVal * rangeGain) + baseRange);
+				range = Math.min(range, maxRange);
+				range = Math.max(range, baseRange);
+				
+				mob.getCapability(CapabilityStats.FOLLOW_RANGE_CAPABILITY, CapabilityStats.DEFAULT_FACING).addBonusFollowRange(range);
+			}
+			
 			
 			//mob.getEntityData().setDouble("MobOptionsAtt", attackVal);
 			//mob.getEntityData().setDouble("MobOptionsDef", defenceVal);
