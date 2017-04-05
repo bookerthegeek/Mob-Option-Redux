@@ -8,7 +8,8 @@ import static com.bookerthegeek.moboptions.ConfigHandler.undergroundChance;
 
 import java.util.UUID;
 
-import com.bookerthegeek.moboptions.Capabilities.CapabilityStats;
+import com.bookerthegeek.moboptions.Capabilities.stats.CapabilityStats;
+
 import static com.bookerthegeek.moboptions.ConfigHandler.*;
 
 import net.minecraft.entity.EntityList;
@@ -105,6 +106,16 @@ public class MobOptionsEventHandler {
 				health = Math.max(health, baseHealth);
 				
 				mob.getCapability(CapabilityStats.MAX_HEALTH_CAPABILITY, CapabilityStats.DEFAULT_FACING).addBonusMaxHealth(health);
+			}
+			
+			if(mob.hasCapability(CapabilityStats.ATTACK_CAPABILITY, CapabilityStats.DEFAULT_FACING)){
+				
+				int baseDamage = (int)mob.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
+				int damage = (int)(baseDamage + (attackVal * attackGain) * baseDamage);
+				damage = Math.min(damage, dimData.get(dim).dimDamageCap);
+				damage = Math.max(damage,  baseDamage);
+				
+				mob.getCapability(CapabilityStats.ATTACK_CAPABILITY, CapabilityStats.DEFAULT_FACING).addBonusMaxAttack(damage);
 			}
 			
 			

@@ -1,8 +1,11 @@
 package com.bookerthegeek.moboptions;
 
-import com.bookerthegeek.moboptions.Capabilities.CapabilityStats;
+import java.util.UUID;
+
+import com.bookerthegeek.moboptions.Capabilities.stats.CapabilityStats;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -28,6 +31,8 @@ public class MobOptions{
     	ConfigHandler.createConfigs(event);
     	
     	CapabilityStats.register();
+    	
+    	FMLLog.bigWarning(UUID.randomUUID().toString(), new Object[0]);
     	
     	MinecraftForge.EVENT_BUS.register(new MobOptionsEventHandler());
     }
