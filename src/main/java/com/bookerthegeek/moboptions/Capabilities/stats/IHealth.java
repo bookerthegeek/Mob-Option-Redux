@@ -1,6 +1,6 @@
-package com.bookerthegeek.moboptions.Capabilities;
+package com.bookerthegeek.moboptions.Capabilities.stats;
 
-public interface IStats {
+public interface IHealth {
 
 	float getBonusMaxHealth();
 
