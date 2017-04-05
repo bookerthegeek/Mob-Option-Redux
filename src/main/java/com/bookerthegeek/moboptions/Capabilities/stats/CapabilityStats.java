@@ -33,6 +33,10 @@ public final class CapabilityStats {
 	@CapabilityInject(IAttack.class)
 	public static final Capability<IAttack> ATTACK_CAPABILITY = null;
 	public static final ResourceLocation ATTACK_ID = new ResourceLocation(MobOptions.MODID, "Attack");
+	
+	@CapabilityInject(IFollow.class)
+	public static final Capability<IFollow> FOLLOW_RANGE_CAPABILITY = null;
+	public static final ResourceLocation FOLLOW_ID = new ResourceLocation(MobOptions.MODID, "FollowRange");
 
 	public static final EnumFacing DEFAULT_FACING = null;
 
@@ -63,6 +67,18 @@ public final class CapabilityStats {
 				instance.setBonusMaxAttack(((NBTTagFloat) nbt).getFloat());
 			}
 		}, () -> new Stats(null));
+		
+		CapabilityManager.INSTANCE.register(IFollow.class, new Capability.IStorage<IFollow>() {
+			@Override
+			public NBTBase writeNBT(final Capability<IFollow> capability, final IFollow instance, final EnumFacing side) {
+				return new NBTTagFloat(instance.getBonusFollowRange());
+			}
+
+			@Override
+			public void readNBT(final Capability<IFollow> capability, final IFollow instance, final EnumFacing side, final NBTBase nbt) {
+				instance.setBonusFollowRange(((NBTTagFloat) nbt).getFloat());
+			}
+		}, () -> new Stats(null));
 	}
 
 
@@ -75,6 +91,11 @@ public final class CapabilityStats {
 	public static IAttack getMaxAttack(final EntityMob entity) {
 		return CapabilityProvider.getCapability(entity, ATTACK_CAPABILITY, DEFAULT_FACING);
 	}
+	
+	@Nullable
+	public static IFollow getFollow(final EntityMob entity) {
+		return CapabilityProvider.getCapability(entity, FOLLOW_RANGE_CAPABILITY, DEFAULT_FACING);
+	}
 
 
 	public static ICapabilityProvider createProvider(final IHealth maxHealth) {
@@ -83,6 +104,10 @@ public final class CapabilityStats {
 	
 	public static ICapabilityProvider createProvider(final IAttack attack) {
 		return new CapabilityProvider<>(ATTACK_CAPABILITY, DEFAULT_FACING, attack);
+	}
+	
+	public static ICapabilityProvider createProvider(final IFollow attack) {
+		return new CapabilityProvider<>(FOLLOW_RANGE_CAPABILITY, DEFAULT_FACING, attack);
 	}
 
 
@@ -96,6 +121,7 @@ public final class CapabilityStats {
 				final Stats stats = new Stats((EntityMob) event.getObject());
 				event.addCapability(HEALTH_ID, createProvider((IHealth)stats));
 				event.addCapability(ATTACK_ID, createProvider((IAttack)stats));
+				event.addCapability(FOLLOW_ID, createProvider((IFollow)stats));
 			}
 		}
 	}
