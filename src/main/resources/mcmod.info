@@ -5,7 +5,7 @@
   "description": "Mob scaling based on distance from spawn",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://minecraft.curseforge.com/projects/mob-options-redux",
   "updateUrl": "",
   "authorList": ["BookerTheGeek: Owner", "TuffNoodle: Artist", "Matryoshika: Maintainer"],
   "credits": "poop_corn: Original Author",
