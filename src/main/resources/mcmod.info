@@ -1,0 +1,16 @@
+[
+{
+  "modid": "moboptions",
+  "name": "Mob-Options Redux",
+  "description": "The idea behind this mod was to make getting valuable resources harder, and encourage building bases above ground. Also, to allow the scaling of mobs by distance for use in exploration / adventure mod packs.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["BookerTheGeek: Owner", "TuffNoodle: Artist", "Matryoshika: Maintainer"],
+  "credits": "poop_corn: Original Author",
+  "logoFile": "assets/moboptions/textures/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
