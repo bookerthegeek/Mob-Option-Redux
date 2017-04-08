@@ -17,12 +17,13 @@ public class ConfigHandler {
 	public static float depthMultiplier;
 	public static float depthOffset;
 	public static int distanceDifficulty;
-	public static float probDiamond;
-	public static float probIron;
-	public static float probGold;
-	public static float probChain;
-	public static float probLeather;
+	public static float probTier5;
+	public static float probTier4;
+	public static float probTier3;
+	public static float probTier2;
+	public static float probTier1;
 	public static float enchantCost;
+	public static List armourList;
 	public static int defaultDim;
 	public static HashMap<Integer, DimensionMobOptions> dimData;
 	public static float maxSpeed;
@@ -54,13 +55,20 @@ public class ConfigHandler {
 		distanceDifficulty = config.getInt("Distance Difficulty", "Difficulty Settings", 200, 0, 1000,"Distance / Difficulty (Lower is harder!)(2000/200 mobs will be level 10)");
 		attackGain = config.getFloat("Attack Gain", "Difficulty Settings", 0.5F, 0F, 5F,"How much (percentage) attack damage mobs gain approx every two levels.");
 
-		probDiamond = config.getFloat("Diamond Chance", "Armor and Weapons", .01F, 0F, 1F,"Percent a mob will get diamond gear per 2 levels approx.");
-		probIron = config.getFloat("Iron Chance", "Armor and Weapons", .01F, 0F, 1F,"Percent a mob will get iron gear per 2 levels approx.");
-		probGold = config.getFloat("Gold Chance", "Armor and Weapons", .02F, 0F, 1F,"Percent a mob will get gold gear per 2 levels approx.");
-		probChain = config.getFloat("Chain Chance", "Armor and Weapons", .04F, 0F, 1F,"Percent a mob will get chain / stone gear per 2 levels approx.");
-		probLeather = config.getFloat("Leather Chance", "Armor and Weapons", .06F, 0F, 1F,"Percent a mob will get leather / wood gear per 2 levels approx.");
+		probTier5 = config.getFloat("Tier5 Chance", "Armor and Weapons", .01F, 0F, 1F,"Percent a mob will get Tier5 gear per 2 levels approx.");
+		probTier4 = config.getFloat("Tier4 Chance", "Armor and Weapons", .01F, 0F, 1F,"Percent a mob will get Tier4 gear per 2 levels approx.");
+		probTier3 = config.getFloat("Tier3 Chance", "Armor and Weapons", .02F, 0F, 1F,"Percent a mob will get Tier3 gear per 2 levels approx.");
+		probTier2 = config.getFloat("Tier2 Chance", "Armor and Weapons", .04F, 0F, 1F,"Percent a mob will get Tier2 gear per 2 levels approx.");
+		probTier1 = config.getFloat("Tier1 Chance", "Armor and Weapons", .06F, 0F, 1F,"Percent a mob will get Tier1 gear per 2 levels approx.");
 		weaponDrop = config.getFloat("Weapon Drop", "Armor and Weapons", .00F, 0F, 1F,"Percent a mob will drop its weapon");
 		armourDrop = config.getFloat("Armor Drop", "Armor and Weapons", .01F, 0F, 1F,"Percent a mob will drop a piece of armor");
+		String[] defaultArmour = config.getStringList("Armour to Spawn", "Armor and Weapons", new String[]{
+				"HEAD:minecraft:diamond_helmet:0","HEAD:minecraft:iron_helmet:0","HEAD:minecraft:golden_helmet:0","HEAD:minecraft:chainmail_helmet:0","HEAD:minecraft:leather_helmet:0",
+				"CHEST:minecraft:diamond_chestplate:0","CHEST:minecraft:iron_chestplate:0","CHEST:minecraft:golden_chestplate:0","CHEST:minecraft:chainmain_chestplate:0","CHEST:minecraft_leather_chestplate",
+				"LEGS:minecraft:diamond_leggings:0","LEGS:minecraft:iron_leggings:0","LEGS:minecraft:golden_leggings:0","LEGS:minecraft:chainmail_leggings:0","LEGS:minecraft:leather_leggings:0",
+				"FEET:minecraft:diamond_boots:0","FEET:minecraft:iron_boots:0","FEET:minecraft:golden_boots:0","FEET:minecraft:chainmail_boots:0","FEET:minecraft:chainmail_boots:0"
+				
+		}, "List of ItemStacks that Mobs can spawn with. Built as type:domain:name:meta, where type= HEAD,CHEST,LEGS or FEET, domain= minecraft,botania,bloodmagic etc");
 
 		enchantCost = config.getFloat("Enchantment Cost", "Enchantments", 2F, 1F, 100F,"How many levels does it take for a mob to gain an enchantment?");
 
