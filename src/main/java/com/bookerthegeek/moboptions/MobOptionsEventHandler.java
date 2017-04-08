@@ -1,26 +1,6 @@
 package com.bookerthegeek.moboptions;
 
-import static com.bookerthegeek.moboptions.ConfigHandler.armourDrop;
-import static com.bookerthegeek.moboptions.ConfigHandler.attackGain;
-import static com.bookerthegeek.moboptions.ConfigHandler.defaultDim;
-import static com.bookerthegeek.moboptions.ConfigHandler.depthMultiplier;
-import static com.bookerthegeek.moboptions.ConfigHandler.depthOffset;
-import static com.bookerthegeek.moboptions.ConfigHandler.dimData;
-import static com.bookerthegeek.moboptions.ConfigHandler.distanceDifficulty;
-import static com.bookerthegeek.moboptions.ConfigHandler.enchantCost;
-import static com.bookerthegeek.moboptions.ConfigHandler.maxRange;
-import static com.bookerthegeek.moboptions.ConfigHandler.mobsToSpawn;
-import static com.bookerthegeek.moboptions.ConfigHandler.probTier1;
-import static com.bookerthegeek.moboptions.ConfigHandler.probTier2;
-import static com.bookerthegeek.moboptions.ConfigHandler.probTier3;
-import static com.bookerthegeek.moboptions.ConfigHandler.probTier4;
-import static com.bookerthegeek.moboptions.ConfigHandler.probTier5;
-import static com.bookerthegeek.moboptions.ConfigHandler.rand;
-import static com.bookerthegeek.moboptions.ConfigHandler.rangeGain;
-import static com.bookerthegeek.moboptions.ConfigHandler.spawnRadius;
-import static com.bookerthegeek.moboptions.ConfigHandler.spawnWhitelist;
-import static com.bookerthegeek.moboptions.ConfigHandler.underground;
-import static com.bookerthegeek.moboptions.ConfigHandler.undergroundChance;
+import static com.bookerthegeek.moboptions.ConfigHandler.*;
 
 import com.bookerthegeek.moboptions.Capabilities.stats.CapabilityStats;
 import com.bookerthegeek.moboptions.utils.JSONEquipmentReader;

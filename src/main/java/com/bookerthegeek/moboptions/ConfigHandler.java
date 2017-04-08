@@ -1,5 +1,6 @@
 package com.bookerthegeek.moboptions;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +24,6 @@ public class ConfigHandler {
 	public static float probTier2;
 	public static float probTier1;
 	public static float enchantCost;
-	public static List armourList;
 	public static int defaultDim;
 	public static HashMap<Integer, DimensionMobOptions> dimData;
 	public static float maxSpeed;
@@ -39,7 +39,7 @@ public class ConfigHandler {
 	public static Random rand = new Random();
 
 	public static void createConfigs(FMLPreInitializationEvent event) {
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+		Configuration config = new Configuration(new File(MobOptions.INSTANCE.getConfigFolder() + "/moboptions.cfg"));
 		config.load();
 
 		underground = config.getInt("Sea Level", "Underground Spawning", 50, 0, 255,"Mobs will spawn more often and are unaffected by light below this Y coordinate.");
@@ -62,14 +62,6 @@ public class ConfigHandler {
 		probTier1 = config.getFloat("Tier1 Chance", "Armor and Weapons", .06F, 0F, 1F,"Percent a mob will get Tier1 gear per 2 levels approx.");
 		weaponDrop = config.getFloat("Weapon Drop", "Armor and Weapons", .00F, 0F, 1F,"Percent a mob will drop its weapon");
 		armourDrop = config.getFloat("Armor Drop", "Armor and Weapons", .01F, 0F, 1F,"Percent a mob will drop a piece of armor");
-		String[] defaultArmour = config.getStringList("Armour to Spawn", "Armor and Weapons", new String[]{
-				"HEAD:minecraft:diamond_helmet:0","HEAD:minecraft:iron_helmet:0","HEAD:minecraft:golden_helmet:0","HEAD:minecraft:chainmail_helmet:0","HEAD:minecraft:leather_helmet:0",
-				"CHEST:minecraft:diamond_chestplate:0","CHEST:minecraft:iron_chestplate:0","CHEST:minecraft:golden_chestplate:0","CHEST:minecraft:chainmain_chestplate:0","CHEST:minecraft_leather_chestplate",
-				"LEGS:minecraft:diamond_leggings:0","LEGS:minecraft:iron_leggings:0","LEGS:minecraft:golden_leggings:0","LEGS:minecraft:chainmail_leggings:0","LEGS:minecraft:leather_leggings:0",
-				"FEET:minecraft:diamond_boots:0","FEET:minecraft:iron_boots:0","FEET:minecraft:golden_boots:0","FEET:minecraft:chainmail_boots:0","FEET:minecraft:chainmail_boots:0"
-				
-		}, "List of ItemStacks that Mobs can spawn with. Built as type:domain:name:meta, where type= HEAD,CHEST,LEGS or FEET, domain= minecraft,botania,bloodmagic etc");
-
 		enchantCost = config.getFloat("Enchantment Cost", "Enchantments", 2F, 1F, 100F,"How many levels does it take for a mob to gain an enchantment?");
 
 		maxSpeed = config.getFloat("Creeper Max Speed", "Mob Settings", .4F, 0F, 5F,"Max creeper speed. (base speed is .25");
