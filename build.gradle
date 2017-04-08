@@ -76,3 +76,7 @@ processResources
         exclude 'mcmod.info'
     }
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2'
+}
