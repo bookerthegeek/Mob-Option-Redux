@@ -3,8 +3,8 @@ package com.bookerthegeek.moboptions;
 import static com.bookerthegeek.moboptions.ConfigHandler.*;
 
 import com.bookerthegeek.moboptions.Capabilities.stats.CapabilityStats;
-import com.bookerthegeek.moboptions.utils.JSONEquipmentReader;
-import com.bookerthegeek.moboptions.utils.SetHandler;
+import com.bookerthegeek.moboptions.equipment.JSONEquipmentReader;
+import com.bookerthegeek.moboptions.equipment.SetHandler;
 
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.IEntityLivingData;
@@ -122,8 +122,10 @@ public class MobOptionsEventHandler {
 		float[] chances = new float[] { probTier5, probTier4, probTier3, probTier2, probTier1 };
 
 		for (int i = 0; i < chances.length; i++) {
-			if (rand.nextFloat() < defenceVal * chances[i])
+			if (rand.nextFloat() < defenceVal * chances[i]){
 				tier = i + 1;
+				break;
+			}
 		}
 		SetHandler set = JSONEquipmentReader.dressEntity(tier, mob);
 		float dropChance = armourDrop;
