@@ -1,4 +1,4 @@
-package com.bookerthegeek.moboptions.utils;
+package com.bookerthegeek.moboptions.equipment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -66,16 +66,11 @@ public class JSONEquipmentReader {
 				Items.DIAMOND_SWORD.getRegistryName().toString() + "#0",
 				Items.SHIELD.getRegistryName().toString() + "#0", true);
 
-		handler.addToList(1, leatherSet).addToList(1, leatherSet).addToList(2, chainSet).addToList(3, goldSet)
-				.addToList(4, ironSet).addToList(5, diamondSet);
+		handler.addToList(1, leatherSet).addToList(1, leatherSet).addToList(2, chainSet).addToList(3, goldSet).addToList(4, ironSet).addToList(5, diamondSet);
 
 		if (!jsonLoc.exists()) {
-			try {
-				jsonLoc.createNewFile();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
 			try (Writer writer = new FileWriter(jsonLoc)) {
+				jsonLoc.createNewFile();
 				gson.toJson(handler, writer);
 
 			} catch (IOException e) {

@@ -1,4 +1,4 @@
-package com.bookerthegeek.moboptions.utils;
+package com.bookerthegeek.moboptions.equipment;
 
 import java.util.ArrayList;
 
