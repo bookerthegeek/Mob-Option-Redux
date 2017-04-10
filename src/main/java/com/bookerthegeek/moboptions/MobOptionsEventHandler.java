@@ -195,10 +195,9 @@ public class MobOptionsEventHandler {
 					
 					int chance = rand.nextInt(100);
 					//Skip if above allowed apply-chance
-					if(!(chance < held.chanceToApply)){
-						System.out.println(chance);
+					if(!(chance < held.chanceToApply))
 						continue;
-					}
+					
 					
 					//converting to actual enchant
 					Enchantment enchant = Enchantment.getEnchantmentByLocation(held.enchantment);
