@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ConfigHandler {
 
 	public static int spawnRadius;
+	public static boolean spawnLocation;
 	public static int underground;
 	public static boolean spawnWhitelist;
 	public static float undergroundChance;
@@ -50,6 +51,7 @@ public class ConfigHandler {
 		mobsToSpawn = Arrays.asList(defaultMobsToSpawn.replace(" ", "").split(","));
 
 		spawnRadius = config.getInt("Spawn Area", "Difficulty Settings", 400, 0, 10000,"Radius around 0,0 to not buff mobs by distance (will still buff from height).");
+		spawnLocation = config.getBoolean("Spawn Location Calculation", "Difficulty Settings", true, "If true, will calculate against the overworld's actual spawn-point. If false, will calculate the safe-area centered at x=0,z=0");
 		depthMultiplier = config.getFloat("Depth Multipler", "Difficulty Settings", -.1F, -10F, 10F,"How quickly will mobs get easier or harder as y increases. (negative is easier)");
 		depthOffset = config.getFloat("Depth Offset", "Difficulty Settings", 5F, 0F, 1000F, "Mob Strength at y=0");
 		distanceDifficulty = config.getInt("Distance Difficulty", "Difficulty Settings", 200, 0, 1000,"Distance / Difficulty (Lower is harder!)(2000/200 mobs will be level 10)");

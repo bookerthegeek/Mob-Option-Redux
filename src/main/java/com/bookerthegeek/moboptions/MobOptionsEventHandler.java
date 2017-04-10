@@ -86,7 +86,13 @@ public class MobOptionsEventHandler {
 		int intEnchants;
 		double depthMult = (depthMultiplier * mob.posY + depthOffset);
 		depthMult = Math.max(depthMult, 0);
-		double distance = mob.getDistance(0, mob.posY, 0);
+		int x = mob.worldObj.getSpawnPoint().getX();
+		int z = mob.worldObj.getSpawnPoint().getZ();
+		if(!ConfigHandler.spawnLocation){
+			x = 0;
+			z = 0;
+		}
+		double distance = mob.getDistance(x, mob.posY, z);
 		double distMult;
 		if (dim == 0 && distance < spawnRadius)
 			distMult = 0;
