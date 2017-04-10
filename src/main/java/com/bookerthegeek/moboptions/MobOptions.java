@@ -5,6 +5,7 @@ import java.io.File;
 import com.bookerthegeek.moboptions.Capabilities.stats.CapabilityStats;
 import com.bookerthegeek.moboptions.enchantment.JSONEnchantmentList;
 import com.bookerthegeek.moboptions.equipment.JSONEquipmentReader;
+import com.bookerthegeek.moboptions.utils.EntityDump;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -48,6 +49,7 @@ public class MobOptions{
     @EventHandler
     public void init(FMLInitializationEvent event){
     	enchants = new JSONEnchantmentList().addEnchants();
+    	EntityDump.dumpAllEntities();
     }
     
     public File getConfigFolder(){
