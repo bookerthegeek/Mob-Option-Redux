@@ -3,7 +3,8 @@ package com.bookerthegeek.moboptions;
 import java.io.File;
 
 import com.bookerthegeek.moboptions.Capabilities.stats.CapabilityStats;
-import com.bookerthegeek.moboptions.utils.JSONEquipmentReader;
+import com.bookerthegeek.moboptions.enchantment.JSONEnchantmentList;
+import com.bookerthegeek.moboptions.equipment.JSONEquipmentReader;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -26,6 +27,7 @@ public class MobOptions{
     public static MobOptions INSTANCE;
     
     public File configDir;
+    public JSONEnchantmentList enchants;
     
     
     @EventHandler
@@ -35,8 +37,7 @@ public class MobOptions{
     	if(!configDir.exists())
 			configDir.mkdirs();
 		JSONEquipmentReader.makeEquipmentJSON();
-    	
-    	
+
     	ConfigHandler.createConfigs(event);
     	
     	CapabilityStats.register();
@@ -46,6 +47,7 @@ public class MobOptions{
     
     @EventHandler
     public void init(FMLInitializationEvent event){
+    	enchants = new JSONEnchantmentList().addEnchants();
     }
     
     public File getConfigFolder(){
