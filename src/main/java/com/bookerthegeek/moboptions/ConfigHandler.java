@@ -45,9 +45,10 @@ public class ConfigHandler {
 
 		underground = config.getInt("Sea Level", "Underground Spawning", 50, 0, 255,"Mobs will spawn more often and are unaffected by light below this Y coordinate.");
 		undergroundChance = config.getFloat("Spawn Chance", "Underground Spawning", .01F, 0F, 1F,"Chance to spawn mobs under sea level. Careful!");
-		spawnWhitelist = config.getBoolean("Use Whitelist", "Underground Spawning", true,"If set to false Mobs to spawn will act as a blacklist.");
+		
+		spawnWhitelist = config.getBoolean("Use Whitelist", "Underground Spawning", true,"If set to false Mobs that ignore light-level will act as a blacklist.");
 		String defaultMobsToSpawn = "Zombie, Skeleton, Creeper, Spider";
-		defaultMobsToSpawn = config.getString("Mobs to Spawn", "Underground Spawning", defaultMobsToSpawn,"Comma seperated list of mobs that will spawn under sea level ignoring light.");
+		defaultMobsToSpawn = config.getString("Mobs that ignore light-level", "Underground Spawning", defaultMobsToSpawn,"Comma seperated list of mobs that will spawn under sea level ignoring light.");
 		mobsToSpawn = Arrays.asList(defaultMobsToSpawn.replace(" ", "").split(","));
 
 		spawnRadius = config.getInt("Spawn Area", "Difficulty Settings", 400, 0, 10000,"Radius around 0,0 to not buff mobs by distance (will still buff from height).");
